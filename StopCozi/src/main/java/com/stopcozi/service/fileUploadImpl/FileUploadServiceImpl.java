@@ -12,14 +12,7 @@ public class FileUploadServiceImpl implements FileUploadDao {
 
 	 @Autowired
 	 private SessionFactory sessionFactory;
-	     
-	 public FileUploadServiceImpl() {
-	    }
-	 
-	 public FileUploadServiceImpl(SessionFactory sessionFactory) {
-	        this.sessionFactory = sessionFactory;
-	    }
-	 
+	   
 	@Override
 	@Transactional
 	public void save(UploadDocs uploadFile) {
