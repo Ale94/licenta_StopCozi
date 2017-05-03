@@ -48,6 +48,13 @@ public class User implements UserDetails {
     @JsonIgnore
     @JsonManagedReference
 	private List<Appointment> appointmentList;
+	
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    @JsonManagedReference
+	private List<UploadDocs> uploadFileList;
+	
 	public String getLastName() {
 		return lastName;
 	}
@@ -108,30 +115,31 @@ public class User implements UserDetails {
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
-	@Override
-	public String toString() {
-		return "User [firstName=" + firstName + ", lastName=" + lastName + ", password=" + password + ", userId=" + userId
-				+ ", email=" + email + ", phoneNo=" + phone + ", PIN=" + PIN + ", username=" + username
-				+ ", appointmentList=" + appointmentList + "]";
+	
+	 public List<UploadDocs> getUploadFileList() {
+		return uploadFileList;
 	}
-	 @Override
-	    public Collection<? extends GrantedAuthority> getAuthorities() {
-	        Set<GrantedAuthority> authorities = new HashSet<>();
-	        userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
-	        return authorities;
-	    }
+	public void setUploadFileList(List<UploadDocs> uploadFileList) {
+		this.uploadFileList = uploadFileList;
+	}
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		Set<GrantedAuthority> authorities = new HashSet<>();
+	    userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
+	    return authorities;
+	}
 
-	    @Override
-	    public boolean isAccountNonExpired() {
-	        // TODO Auto-generated method stub
-	        return true;
-	    }
+	@Override
+	public boolean isAccountNonExpired() {
+	    // TODO Auto-generated method stub
+	     return true;
+	 }
 
-	    @Override
-	    public boolean isAccountNonLocked() {
-	        // TODO Auto-generated method stub
-	        return true;
-	    }
+	@Override
+	public boolean isAccountNonLocked() {
+	    // TODO Auto-generated method stub
+	    return true;
+	}
 
 	    @Override
 	    public boolean isCredentialsNonExpired() {
@@ -145,6 +153,14 @@ public class User implements UserDetails {
 	    }
 		public void setEnabled(boolean enabled) {
 			this.enabled = enabled;
+		}
+		
+		@Override
+		public String toString() {
+			return "User [firstName=" + firstName + ", lastName=" + lastName + ", password=" + password + ", userId="
+					+ userId + ", email=" + email + ", phone=" + phone + ", PIN=" + PIN + ", username=" + username
+					+ ", enabled=" + enabled + ", userRoles=" + userRoles + ", appointmentList=" + appointmentList
+					+ ", uploadFileList=" + uploadFileList + "]";
 		}
 	    
 

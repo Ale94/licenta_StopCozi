@@ -38,7 +38,8 @@ public class AppointmentController {
 	}
 	
 	@RequestMapping(value="/create", method=RequestMethod.POST)
-	public String postAppointment(@ModelAttribute("appointment") Appointment appointment, @ModelAttribute("dateString") String date,Principal principal,Model model) throws ParseException{
+	public String postAppointment(@ModelAttribute("appointment") Appointment appointment,
+			@ModelAttribute("dateString") String date,Principal principal,Model model) throws ParseException{
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 		Date date1;

@@ -10,8 +10,11 @@
             <h2 class="title">Incarca documente</h2>
             <hr/>
              
-        <form method="post" th:action="@{/uploadFile/uploadDocs}" enctype="multipart/form-data">
-            <table border="0">
+     <!--    <form action="uploadDocs.html" th:action="@{/uploadDocs}" method="post" enctype="multipart/form-data">--> 
+       <form method="post" th:action="@{/uploadFiles/uploadDocs}" enctype="multipart/form-data"> 
+        <input type="hidden" name="id" th:value="${uploadDocs.id}"/>
+        <input type="file" name="myFile" />
+          <!--   <table border="0">
                 <tr>
                     <td>Alege fisierul #1:</td>
                     <td><input type="file" name="fileUpload" size="50" /></td>
@@ -20,10 +23,13 @@
                     <td>Alege fisierul #2:</td>
                     <td><input type="file" name="fileUpload" size="50" /></td>
                 </tr>
-                <tr>
+                </table>--> 
+           <!--      <tr>
                     <td colspan="2" align="center"><input type="submit" value="Incarca" /></td>
-                </tr>
-            </table>
+                </tr>--> 
+                
+                 <a class="btn btn-primary" id="submitUploadFile">Incarca</a>
+            
         </form>
     </div>
     </div>
