@@ -50,10 +50,10 @@ public class User implements UserDetails {
 	private List<Appointment> appointmentList;
 	
 	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
-    @JsonManagedReference
-	private List<UploadDocs> uploadFileList;
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnore
+	@JsonManagedReference
+    private List<UploadFile> uploadFiles;
 	
 	public String getLastName() {
 		return lastName;
@@ -116,11 +116,11 @@ public class User implements UserDetails {
 		this.userRoles = userRoles;
 	}
 	
-	 public List<UploadDocs> getUploadFileList() {
-		return uploadFileList;
+	 public List<UploadFile> getUploadFileList() {
+		return uploadFiles;
 	}
-	public void setUploadFileList(List<UploadDocs> uploadFileList) {
-		this.uploadFileList = uploadFileList;
+	public void setUploadFileList(List<UploadFile> uploadFiles) {
+		this.uploadFiles = uploadFiles;
 	}
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -160,7 +160,7 @@ public class User implements UserDetails {
 			return "User [firstName=" + firstName + ", lastName=" + lastName + ", password=" + password + ", userId="
 					+ userId + ", email=" + email + ", phone=" + phone + ", PIN=" + PIN + ", username=" + username
 					+ ", enabled=" + enabled + ", userRoles=" + userRoles + ", appointmentList=" + appointmentList
-					+ ", uploadFileList=" + uploadFileList + "]";
+					+ ", uploadFileList=" + uploadFiles + "]";
 		}
 	    
 

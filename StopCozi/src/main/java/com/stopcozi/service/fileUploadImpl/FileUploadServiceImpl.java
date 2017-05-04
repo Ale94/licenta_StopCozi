@@ -4,18 +4,21 @@ import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.stopcozi.dao.FileUploadDao;
-import com.stopcozi.domain.UploadDocs;
+import com.stopcozi.domain.UploadFile;
+import com.stopcozi.service.UploadFileService;
 
-public class FileUploadServiceImpl implements FileUploadDao {
+@Service
+@Transactional
+public class FileUploadServiceImpl implements UploadFileService {
 
-	 @Autowired
-	 private SessionFactory sessionFactory;
+	@Autowired
+	private SessionFactory sessionFactory;
 	   
 	@Override
 	@Transactional
-	public void save(UploadDocs uploadFile) {
+	public void save(UploadFile uploadFile) {
 	        sessionFactory.getCurrentSession().save(uploadFile);
 	    }
 }
