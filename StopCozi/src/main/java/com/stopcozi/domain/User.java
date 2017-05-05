@@ -49,8 +49,14 @@ public class User implements UserDetails {
     @JsonManagedReference
 	private List<Appointment> appointmentList;
 	
-	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	/**
+	 * If I use CASCADE the delete method CRUD, doesn't work, couldn't find an answer why it doesn't work.
+	 * Some guy tried with CASCADE persist and refresh, but for me didn't work. :( 
+	 * Why? I've mappedBy user.
+	 * What if I want to delete the user, of course all his documents should be deleted too.(CASCADE)
+	 */
+	// cascade = {CascadeType.ALL,CascadeType.PERSIST,CascadeType.REFRESH},
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	@JsonIgnore
 	@JsonManagedReference
     private List<UploadFile> uploadFiles;
