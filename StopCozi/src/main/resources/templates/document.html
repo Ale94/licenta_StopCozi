@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+<div class="container main">
+    <div class="row">
+      <div class="col-xs-6">
+          <h2>Documente disponibile</h2>
+      </div>                   
+    </div>
+    <div th:if="${documents != null}">
+		<div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Numele</th>
+                <th>Tipul</th>
+                <th>Descrierea</th>
+                <th width="100"></th>
+                <th width="100"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="document : ${documents}">
+                <td data-th-text="${document.name}">...</td>
+                <td data-th-text="${document.type}">...</td>
+                <td data-th-text="${document.description}">...</td>
+                <td>
+                	<form th:action="@{/generateDoc/preview}" th:object="${document}" method="post">
+            		<input type="hidden" name="id" th:value="${document.id}"/>
+           			<input type="submit" value="Vezi documentul" class="btn btn-success custom-width"/>
+       				 </form>
+       			</td>
+                    
+                <td>
+                	<form th:action="@{/generateDoc/download}" th:object="${document}" method="post">
+            		<input type="hidden" name="id" th:value="${document.id}"/>
+           			<input type="submit" value="Descarca" class="btn btn-primary custom-width"/>
+       				</form>
+       			</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+                	
+    
+</div>
+</div>
+
+<div th:replace="common/header :: body-bottom-scripts"/>
+
+</body>
+</html>

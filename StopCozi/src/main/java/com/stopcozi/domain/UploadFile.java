@@ -1,6 +1,9 @@
 package com.stopcozi.domain;
 
+import java.util.List;
+
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,12 +12,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
  
 @Entity
 public class UploadFile {
 	
+	/**
+	 * @JsonManagedReference is the forward part of reference – the one that gets serialized normally. 
+	 * @JsonBackReference is the back part of reference – it will be omitted from serialization.
+	 */
 	@Id
 	@GeneratedValue
 	@Column(name = "fileid", nullable = false, updatable = false)
@@ -29,7 +39,24 @@ public class UploadFile {
     @JoinColumn(name = "user_id")
 	@JsonBackReference
     private User user;
-    public void setUser(User user) {
+    
+    @OneToMany(mappedBy = "uploadFile", fetch = FetchType.LAZY)
+    @JsonManagedReference
+	private List<DocumentsSent> documentsSent;
+
+	public List<DocumentsSent> getDocumentsSent() {
+		return documentsSent;
+	}
+
+	public void setDocumentsSent(List<DocumentsSent> documentsSent) {
+		this.documentsSent = documentsSent;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
         this.user = user;
     }
    

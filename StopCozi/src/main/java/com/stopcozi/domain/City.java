@@ -26,7 +26,7 @@ public class City implements Serializable {
 	private long noPeople;
 	private String country;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
     @JsonIgnore
     @JsonManagedReference
 	private List<Agency> agencyList;

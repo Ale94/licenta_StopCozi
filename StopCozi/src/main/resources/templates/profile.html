@@ -71,7 +71,195 @@
                         </div>
                     </div>
                 </div>
+                
 
+			<h5 class="title">Domiciliu actual</h5>
+          	  <hr/>
+				  <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Localitate</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.domiciliuActual}" id="domiciliuActual"
+                                   name="domiciliuActual" roleId="domiciliuActual" placeholder="Introduceți domiciliul."/>
+                        </div>
+                    </div>
+                </div>
+					
+                  <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Judet</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.judetActual}" id="judetActual"
+                                   name="judetActual" roleId="judetActual" placeholder="Introduceți judetul."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Strada</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.strada}" id="strada"
+                                   name="strada" roleId="strada" placeholder="Introduceți strada."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Nr.</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.numar}" id="numar"
+                                   name="numar" roleId="numar" placeholder="Introduceți numarul."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Bl.</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.bloc}" id="bloc"
+                                   name="bloc" roleId="bloc" placeholder="Introduceți numele blocului."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Ap.</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.apartament}" id="apartament"
+                                   name="apartament" roleId="apartament" placeholder="Introduceți numele apartamentul."
+                                   />
+                        </div>
+                    </div>
+                </div>			
+			<h5 class="title">Data nasterii</h5>
+          	  <hr/>
+           <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">An</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.anulNasterii}" id="anulNasterii"
+                                   name="anulNasterii" roleId="anulNasterii" placeholder="Introduceți anul nasterii."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Luna</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.lunaNasterii}" id="lunaNasterii"
+                                   name="lunaNasterii" roleId="lunaNasterii" placeholder="Introduceți luna nasterii."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Ziua</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.ziuaNasterii}" id="ziuaNasterii"
+                                   name="ziuaNasterii" roleId="ziuaNasterii" placeholder="Introduceți ziua nasterii."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Localitate</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.domiciliuNastere}" id="domiciliuNastere"
+                                   name="domiciliuNastere" roleId="domiciliuNastere" placeholder="Introduceți domiciliul."/>
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Judet</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.judetNastere}" id="judetNastere"
+                                   name="judetNastere" roleId="judetNastere" placeholder="Introduceți judetul."
+                                   />
+                        </div>
+                    </div>
+                </div>
+
+			<h5 class="title">Informatii parinti</h5>
+          	  <hr/>
+          	  
+          	  <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Numele si prenumele tatalui</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.dad}" id="dad"
+                                   name="dad" roleId="dad" placeholder="Introduceți numele tatalui."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Numele si prenumele mamei</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.mum}" id="mum"
+                                   name="mum" roleId="mum" placeholder="Introduceți numele mamei."
+                                   />
+                        </div>
+                    </div>
+                </div>
+              
+              <h5 class="title">Informatii act de identitate</h5>
+          	  <hr/>  
+                
+                <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Seria</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-book fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.seria}" id="seria"
+                                   name="seria" roleId="seria" placeholder="Introduceți seria."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">Nr.</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-book fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.numar}" id="numar"
+                                   name="seria" roleId="numar" placeholder="Introduceți numarul."
+                                   />
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="lastName" class="cols-sm-2 control-label">CNP</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-book fa-fw" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" th:value="${user.cnp}" id="cnp"
+                                   name="cnp" roleId="cnp" placeholder="Introduceți cnp-ul."
+                                   />
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group ">
                     <button type="submit" class="btn btn-primary btn-block ">Modifica
                     </button>

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.stopcozi.dao.RoleDaoRepository;
 import com.stopcozi.dao.UserDaoRepository;
 import com.stopcozi.domain.Appointment;
+import com.stopcozi.domain.UploadFile;
 import com.stopcozi.domain.User;
 import com.stopcozi.domain.security.UserRole;
 import com.stopcozi.service.UserService;
@@ -134,6 +135,11 @@ public class UserServiceImpl implements UserService {
 	public List<Appointment> listAllAppointments(User user) {
 		return user.getAppointments();
 		
+	}
+
+	@Override
+	public List<UploadFile> listAllUploadedFiles(User user) {
+		return user.getUploadFileList();
 	}
 
 }

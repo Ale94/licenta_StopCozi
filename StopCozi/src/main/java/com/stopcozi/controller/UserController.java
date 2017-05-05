@@ -39,6 +39,25 @@ public class UserController {
 		user.setFirstName(newUser.getFirstName());
 		user.setUsername(newUser.getUsername());
 		
+		user.setDomiciliuActual(newUser.getDomiciliuActual());
+		user.setJudetActual(newUser.getJudetActual());
+		user.setStrada(newUser.getStrada());
+		user.setNr(newUser.getNr());
+		user.setBloc(newUser.getBloc());
+		user.setApartament(newUser.getApartament());
+		
+		user.setAnulNasterii(newUser.getAnulNasterii());
+		user.setLunaNasterii(newUser.getLunaNasterii());
+		user.setZiuaNasterii(newUser.getZiuaNasterii());
+		user.setDomiciliuNastere(newUser.getDomiciliuNastere());
+		user.setJudetNastere(newUser.getJudetNastere());
+		
+		user.setMum(newUser.getMum());
+		user.setDad(newUser.getDad());
+		
+		user.setSeria(newUser.getSeria());
+		user.setNumar(newUser.getNumar());
+		user.setCnp(newUser.getCnp());
 		model.addAttribute("user", user);
 		
 		userService.save(user);

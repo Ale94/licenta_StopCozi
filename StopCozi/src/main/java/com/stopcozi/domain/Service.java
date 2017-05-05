@@ -24,6 +24,7 @@ public class Service {
 	@JsonBackReference
 	private Agency agency;
 
+	private String acteNecesare;
 	public long getId() {
 		return id;
 	}
@@ -48,10 +49,20 @@ public class Service {
 		this.agency = agency;
 	}
 
+	public String getActeNecesare() {
+		return acteNecesare;
+	}
+
+	public void setActeNecesare(String acteNecesare) {
+		this.acteNecesare = acteNecesare;
+	}
+
 	@Override
 	public String toString() {
-		return "Service [id=" + id + ", name=" + name + ", agency=" + agency + "]";
+		return "Service [id=" + id + ", name=" + name + ", agency=" + agency + ", acteNecesare=" + acteNecesare + "]";
 	}
+
+	
 	
 	
 }

@@ -33,7 +33,7 @@ public class Agency {
 	private City city;
 	
 	//provide services
-	@OneToMany
+	@OneToMany(mappedBy = "agency", fetch = FetchType.EAGER)
     @JsonIgnore
     @JsonManagedReference
 	private List<Service> serviceList;

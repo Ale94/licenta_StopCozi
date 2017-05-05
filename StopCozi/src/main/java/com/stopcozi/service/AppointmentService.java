@@ -13,4 +13,5 @@ public interface AppointmentService {
 	List<Appointment> findAll();
 	Appointment findAppointment(Long id);
 	void confirmAppointment(Long id);
+	List<String> findAllReservedHours(Long userId,  String agencyName, String serviceName, String data);
 }

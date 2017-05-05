@@ -8,4 +8,6 @@ import com.stopcozi.domain.UploadFile;
 public interface UploadFileService {
 
     void save (UploadFile file);
+    UploadFile findById(Long idFile);
+    void deleteById(Long idFile);
 }

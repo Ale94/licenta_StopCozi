@@ -1,5 +1,6 @@
 package com.stopcozi.service.appointmentServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,27 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointment.setConfirmed(true);
 		appointmentDao.save(appointment);
 		
+	}
+
+	@Override
+	public List<String> findAllReservedHours(Long userId, String agencyName, String serviceName, String data) {
+		List<Appointment> allApps = findAll();
+		List<String> reservedHours=new ArrayList<>();
+		for (Appointment appointment : allApps) {
+			if(appointment.getDate().toString().substring(0,10).equals(data)){
+				if(appointment.getAgency().equals(agencyName) && 
+				    appointment.getService().equals(serviceName)) {
+						reservedHours.add(appointment.getHour());
+					}
+				}
+			if(appointment.getUser().getUserId().equals(userId)
+			    && appointment.getDate().toString().equals(data)){
+				if(!reservedHours.contains(appointment.getHour())){
+					reservedHours.add(appointment.getHour());
+				}				
+			}		
+		}
+		return reservedHours;
 	}
 
 }
