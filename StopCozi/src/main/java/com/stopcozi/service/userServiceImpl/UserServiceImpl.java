@@ -1,5 +1,6 @@
 package com.stopcozi.service.userServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -15,6 +16,7 @@ import com.stopcozi.dao.RoleDaoRepository;
 import com.stopcozi.dao.UserDaoRepository;
 import com.stopcozi.domain.Appointment;
 import com.stopcozi.domain.UploadFile;
+import com.stopcozi.domain.UploadFileStatus;
 import com.stopcozi.domain.User;
 import com.stopcozi.domain.security.UserRole;
 import com.stopcozi.service.UserService;
@@ -139,7 +141,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<UploadFile> listAllUploadedFiles(User user) {
-		return user.getUploadFileList();
+		List<UploadFile> uploadFileList = user.getUploadFileList();
+		List<UploadFile> newUploadFile=new ArrayList<UploadFile>();
+		for (UploadFile uploadFile : uploadFileList) {
+			 if(uploadFile.getStatus().equals(UploadFileStatus.ACTIVE)){
+				 newUploadFile.add(uploadFile);
+			 }
+		}
+		return  newUploadFile;
 	}
 
 }

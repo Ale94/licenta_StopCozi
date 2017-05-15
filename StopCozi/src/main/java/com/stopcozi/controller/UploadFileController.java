@@ -2,14 +2,12 @@ package com.stopcozi.controller;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
 
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.stopcozi.domain.UploadFile;
+import com.stopcozi.domain.UploadFileStatus;
 import com.stopcozi.domain.User;
 import com.stopcozi.service.UploadFileService;
 import com.stopcozi.service.UserService;
@@ -52,7 +51,8 @@ public class UploadFileController {
              
              User user=userService.findByUsername(principal.getName());
              uploadFile.setUser(user);
-     		
+     		 uploadFile.setStatus(UploadFileStatus.ACTIVE);
+     		 uploadFile.setDate(new Date());
      		
              uploadService.save(uploadFile);  
 		 }
@@ -119,7 +119,10 @@ public class UploadFileController {
 	     */
 	    @RequestMapping(value ="/delete", method = RequestMethod.POST)
 	    public String deleteDocument(@RequestParam Long id) {
-	    	uploadService.deleteById(id);
+	    	UploadFile uploadFile = uploadService.findById(id);
+	    	uploadFile.setStatus(UploadFileStatus.DELETED);
+	    	uploadService.merge(uploadFile);
+	    	//uploadService.deleteById(id);
 	        return "redirect:/upload/uploadFile";
 	    }
 }

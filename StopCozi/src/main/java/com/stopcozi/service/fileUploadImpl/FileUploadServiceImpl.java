@@ -35,4 +35,10 @@ public class FileUploadServiceImpl implements UploadFileService {
 		fileUploadDao.delete(idFile);
 		
 	}
+
+	@Override
+	public void merge(UploadFile file) {
+		sessionFactory.getCurrentSession().merge(file);
+	
+	}
 }

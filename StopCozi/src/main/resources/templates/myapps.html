@@ -37,6 +37,7 @@
                 <th>Ora</th>
                 <th>Fisiere trimise</th>
                 <th>Mesaj</th>
+                <th>Confirmata</th>
                 
             </tr>
             </thead>
@@ -45,15 +46,17 @@
             	<td data-th-text="${appointment.location}">...</td>
                 <td data-th-text="${appointment.agency}">...</td>
                 <td data-th-text="${appointment.service}">...</td>
-                <td data-th-text="${appointment.date}">...</td>
+                <td data-th-text="${#dates.format(appointment.date,'dd-MMM-yyyy')}">...</td>
                 <td data-th-text="${appointment.hour}">...</td>
                 <td><table>
                 <tr>
-                <td th:if="${appointment.documentsSent} != null" data-th-each="docSent : ${appointment.documentsSent}" data-th-text="${docSent.uploadFile.fileName}">...</td> 
+                <td th:if="${appointment.documentsSent} != null" data-th-each="docSent : ${appointment.documentsSent}" data-th-text="${docSent.uploadFile.fileName+'&nbsp;'}"></td> 
                 <td th:if="${appointment.documentsSent} == null" >Nu ati trimis documente.</td>
                 </tr>
                 </table></td>            
                  <td data-th-text="${appointment.description}">...</td>
+                 <td th:if="${appointment.confirmed} == true" >Confirmata</td>
+                 <td th:if="${appointment.confirmed} == false" >In asteptare</td>
                 
             </tr>
             </tbody>

@@ -162,11 +162,11 @@ public class User implements UserDetails {
 	    return true;
 	}
 
-	    @Override
-	    public boolean isCredentialsNonExpired() {
-	        // TODO Auto-generated method stub
-	        return true;
-	    }
+	@Override
+	public boolean isCredentialsNonExpired() {
+	    // TODO Auto-generated method stub
+	    return true;
+	}
 
 	    @Override
 	    public boolean isEnabled() {

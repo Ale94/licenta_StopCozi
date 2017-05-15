@@ -1,9 +1,9 @@
 package com.stopcozi.domain;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
  
 @Entity
@@ -43,6 +42,35 @@ public class UploadFile {
     @OneToMany(mappedBy = "uploadFile", fetch = FetchType.LAZY)
     @JsonManagedReference
 	private List<DocumentsSent> documentsSent;
+    
+    private UploadFileStatus status;  
+    private DocumentType documentType;
+    
+    public DocumentType getDocumentType() {
+		return documentType;
+	}
+
+	public void setDocumentType(DocumentType documentType) {
+		this.documentType = documentType;
+	}
+
+	private Date date;
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public UploadFileStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(UploadFileStatus status) {
+		this.status = status;
+	}
 
 	public List<DocumentsSent> getDocumentsSent() {
 		return documentsSent;
