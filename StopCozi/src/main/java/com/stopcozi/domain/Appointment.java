@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity 
-public class Appointment implements Serializable {
+public class Appointment{
 	private String agency;
 	private String service;
 	private Date date;

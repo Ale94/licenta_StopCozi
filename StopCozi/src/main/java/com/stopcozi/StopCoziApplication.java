@@ -1,5 +1,7 @@
 package com.stopcozi;
 
+import java.util.Properties;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.jpa.HibernateEntityManagerFactory;
 import org.springframework.boot.SpringApplication;
@@ -7,12 +9,14 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.annotation.Order;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.multipart.support.MultipartFilter;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})	
+//@ComponentScan("com.stopcozi.sendEmail")
 public class StopCoziApplication {
 
 	public static void main(String[] args) {
@@ -31,6 +35,32 @@ public class StopCoziApplication {
 	    multipartResolver.setMaxInMemorySize(1048576);  // 1MB
 	    return multipartResolver;
 	}
+	
+//	@Bean
+//	 public JavaMailSender javaMailService() {
+//	        JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
+//
+//	        javaMailSender.setHost("smtp.gmail.com");
+//	        javaMailSender.setPort(465);
+//
+//	        javaMailSender.setJavaMailProperties(getMailProperties());
+//	        javaMailSender.setUsername("petcov.alexandra@gmail.com");
+//	        javaMailSender.setPassword("Sprite06");
+//
+//	        return javaMailSender;
+//	    }
+//
+//	    private Properties getMailProperties() {
+//	        Properties properties = new Properties();
+//	        properties.setProperty("mail.transport.protocol", "smtp");
+//	        properties.setProperty("mail.smtp.auth", "true");
+//	        properties.setProperty("mail.smtp.starttls.enable", "true");
+//	        properties.setProperty("mail.debug", "true");
+//	        properties.setProperty("mail.smtp.ssl.enable","true");
+//	        properties.setProperty("mail.test-connection","true");
+//	        return properties;
+//	    }
+	
 //	
 //	@Bean
 //	public MultipartResolver multipartResolver() {
