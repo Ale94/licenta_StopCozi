@@ -10,7 +10,7 @@ import com.stopcozi.domain.City;
 @Service
 public interface AgencyService {
 
-	List<Agency> listAllAgencies(City city);
+	List<Agency> listAllAgencies(City city, String institute);
 	Agency findbyId(Long id);
 	Agency findbyName(String agencyName);
 }

@@ -5,10 +5,12 @@
 
 var gvDate;
 var gvService;
+var idInstitutie;
 function populateAgency(paramCityId) {
 				resetAgency();
 				$.getJSON("http://localhost:8181/appointment/agencies", {
 					cityId : paramCityId,
+					idInstitutie: idInstitutie,
 					ajax : 'true'
 				}, function(data) {
 					var html = '<option value="">--alege agentia--</option>';
@@ -168,6 +170,13 @@ $(document).ready(function() {
     			populateAgency($(this).val());
     			});
 
+    
+    
+    $('#institutie').change(
+    		function (){
+    			idInstitutie=$(this).val();
+    			resetAgency();
+    			});
 
     $('#agency').change(
     		function(){

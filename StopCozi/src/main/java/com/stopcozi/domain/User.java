@@ -45,9 +45,9 @@ public class User implements UserDetails {
 	private String strada;
 	private String bloc;
 	private String apartament;
-	private String numar;
+	private String numarAdresa;
 	private String seria;
-	private String nr;
+	private String nrBuletin;
 	private String anulNasterii;
 	private String ziuaNasterii;
 	private String lunaNasterii;
@@ -218,23 +218,11 @@ public class User implements UserDetails {
 		public void setApartament(String apartament) {
 			this.apartament = apartament;
 		}
-		public String getNumar() {
-			return numar;
-		}
-		public void setNumar(String numar) {
-			this.numar = numar;
-		}
 		public String getSeria() {
 			return seria;
 		}
 		public void setSeria(String seria) {
 			this.seria = seria;
-		}
-		public String getNr() {
-			return nr;
-		}
-		public void setNr(String nr) {
-			this.nr = nr;
 		}
 		public String getAnulNasterii() {
 			return anulNasterii;
@@ -281,18 +269,30 @@ public class User implements UserDetails {
 		public void setDomiciliuNastere(String domiciliuNastere) {
 			this.domiciliuNastere = domiciliuNastere;
 		}
+		public String getNumarAdresa() {
+			return numarAdresa;
+		}
+		public void setNumarAdresa(String numarAdresa) {
+			this.numarAdresa = numarAdresa;
+		}
+		public String getNrBuletin() {
+			return nrBuletin;
+		}
+		public void setNrBuletin(String nrBuletin) {
+			this.nrBuletin = nrBuletin;
+		}
 		@Override
 		public String toString() {
 			return "User [firstName=" + firstName + ", lastName=" + lastName + ", password=" + password + ", userId="
 					+ userId + ", email=" + email + ", phone=" + phone + ", cnp=" + cnp + ", username=" + username
 					+ ", dad=" + dad + ", mum=" + mum + ", domiciliuActual=" + domiciliuActual + ", domiciliuNastere="
 					+ domiciliuNastere + ", judetActual=" + judetActual + ", judetNastere=" + judetNastere + ", strada="
-					+ strada + ", bloc=" + bloc + ", apartament=" + apartament + ", numar=" + numar + ", seria=" + seria
-					+ ", nr=" + nr + ", anulNasterii=" + anulNasterii + ", ziuaNasterii=" + ziuaNasterii
-					+ ", lunaNasterii=" + lunaNasterii + ", enabled=" + enabled + ", userRoles=" + userRoles
-					+ ", appointmentList=" + appointmentList + ", uploadFiles=" + uploadFiles + "]";
+					+ strada + ", bloc=" + bloc + ", apartament=" + apartament + ", numarAdresa=" + numarAdresa
+					+ ", seria=" + seria + ", nrBuletin=" + nrBuletin + ", anulNasterii=" + anulNasterii
+					+ ", ziuaNasterii=" + ziuaNasterii + ", lunaNasterii=" + lunaNasterii + ", enabled=" + enabled
+					+ ", userRoles=" + userRoles + ", appointmentList=" + appointmentList + ", uploadFiles="
+					+ uploadFiles + "]";
 		}
 		
-	
 
 }

@@ -1,7 +1,5 @@
 package com.stopcozi;
 
-import java.util.Properties;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.jpa.HibernateEntityManagerFactory;
 import org.springframework.boot.SpringApplication;
@@ -9,14 +7,10 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})	
-//@ComponentScan("com.stopcozi.sendEmail")
 public class StopCoziApplication {
 
 	public static void main(String[] args) {

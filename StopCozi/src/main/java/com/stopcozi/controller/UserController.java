@@ -42,7 +42,7 @@ public class UserController {
 		user.setDomiciliuActual(newUser.getDomiciliuActual());
 		user.setJudetActual(newUser.getJudetActual());
 		user.setStrada(newUser.getStrada());
-		user.setNr(newUser.getNr());
+		user.setNumarAdresa(newUser.getNumarAdresa());
 		user.setBloc(newUser.getBloc());
 		user.setApartament(newUser.getApartament());
 		
@@ -56,7 +56,7 @@ public class UserController {
 		user.setDad(newUser.getDad());
 		
 		user.setSeria(newUser.getSeria());
-		user.setNumar(newUser.getNumar());
+		user.setNrBuletin(newUser.getNrBuletin());
 		user.setCnp(newUser.getCnp());
 		model.addAttribute("user", user);
 		

@@ -28,6 +28,7 @@ public class Appointment{
 	private boolean confirmed;
 	private String description;
 	private String hour;
+	private String institutie;
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
@@ -96,6 +97,12 @@ public class Appointment{
 	        return description;
 	}
 
+	public String getInstitutie() {
+		return institutie;
+	}
+	public void setInstitutie(String institutie) {
+		this.institutie = institutie;
+	}
 	public void setDescription(String description) {
 	        this.description = description;
 	}

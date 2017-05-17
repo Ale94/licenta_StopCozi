@@ -29,16 +29,6 @@ public class Document {
     @Column(name="description", length=255)
     private String description;
 
-    private DocumentType documentType;
-    
-	public DocumentType getDocumentType() {
-		return documentType;
-	}
-
-	public void setDocumentType(DocumentType documentType) {
-		this.documentType = documentType;
-	}
-
 	public long getId() {
 		return id;
 	}

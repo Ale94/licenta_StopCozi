@@ -44,15 +44,6 @@ public class UploadFile {
 	private List<DocumentsSent> documentsSent;
     
     private UploadFileStatus status;  
-    private DocumentType documentType;
-    
-    public DocumentType getDocumentType() {
-		return documentType;
-	}
-
-	public void setDocumentType(DocumentType documentType) {
-		this.documentType = documentType;
-	}
 
 	private Date date;
 

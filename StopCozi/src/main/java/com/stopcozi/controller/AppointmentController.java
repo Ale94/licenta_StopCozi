@@ -21,12 +21,14 @@ import com.stopcozi.domain.Agency;
 import com.stopcozi.domain.Appointment;
 import com.stopcozi.domain.City;
 import com.stopcozi.domain.DocumentsSent;
+import com.stopcozi.domain.Institutie;
 import com.stopcozi.domain.Service;
 import com.stopcozi.domain.UploadFile;
 import com.stopcozi.domain.User;
 import com.stopcozi.service.AgencyService;
 import com.stopcozi.service.AppointmentService;
 import com.stopcozi.service.CityService;
+import com.stopcozi.service.InstituteService;
 import com.stopcozi.service.SerService;
 import com.stopcozi.service.UploadFileService;
 import com.stopcozi.service.UserService;
@@ -47,6 +49,8 @@ public class AppointmentController {
 	SerService serService;
 	@Autowired
 	UploadFileService uploadFileSer;
+	@Autowired
+	InstituteService instituteService;
 
 	
 	@RequestMapping(value="/create", method=RequestMethod.GET)
@@ -57,7 +61,8 @@ public class AppointmentController {
 		Appointment appointment=new Appointment();
 		model.addAttribute("appointment", appointment);
 		model.addAttribute("dateString", "");
-		model.addAttribute("cities", cityService.findAll());
+		model.addAttribute("cities", cityService.findAll());	
+		model.addAttribute("institutieList", instituteService.findAll());
 		model.addAttribute("myFiles", userService.listAllUploadedFiles(user));
 		return "appointment";
 	}		
@@ -65,9 +70,11 @@ public class AppointmentController {
     @RequestMapping(value = "/agencies", method = RequestMethod.GET)
     public @ResponseBody
     List<Agency> findAllAgencies(
-    		@RequestParam(value = "cityId", required = true) Long cityId) {
+    		@RequestParam(value = "cityId", required = true) Long cityId, 
+    		@RequestParam(value = "idInstitutie", required = true) String idInstitutie) {
 		City city = cityService.findCity(cityId);
-    	return agencyService.listAllAgencies(city);
+		//Institutie institute = instituteService.findInstitute(idInstitutie);
+    	return agencyService.listAllAgencies(city,idInstitutie);
     }
     
 	@RequestMapping(value="/services", method=RequestMethod.GET)

@@ -39,6 +39,6 @@ public class AppointmentResource {
         String email = appointment.getUser().getEmail();
         serviceSendEmail.sendMail(email, "Programarea dumneavoastra la agentia "
         +appointment.getAgency()+" si serviciul "+appointment.getService()+" "
-        		+ "realizata in data "+appointment.getDate()+ " a fost confirmata. O zi buna!");
+        		+ "realizata in data "+appointment.getDate().toString().substring(0,10) + " la ora "+appointment.getHour()+" a fost confirmata. O zi buna!");
     }
 }

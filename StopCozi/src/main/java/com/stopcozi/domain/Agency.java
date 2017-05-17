@@ -27,10 +27,17 @@ public class Agency {
 	private String nume;
 	private String adresa;
 	
+	private String nrTel;
+	
 	@ManyToOne
     @JoinColumn(name = "city_id")
 	@JsonBackReference
 	private City city;
+	
+	@ManyToOne
+    @JoinColumn(name = "id_institutie")
+	@JsonBackReference
+	private Institutie institutie;
 	
 	//provide services
 	@OneToMany(mappedBy = "agency", fetch = FetchType.EAGER)
@@ -83,6 +90,24 @@ public class Agency {
 		return "Agency [id=" + id + ", nume=" + nume + ", adresa=" + adresa + ", city=" + city + ", serviceList="
 				+ serviceList + "]";
 	}
+
+	public Institutie getInstitutie() {
+		return institutie;
+	}
+
+	public void setInstitutie(Institutie institutie) {
+		this.institutie = institutie;
+	}
+
+	public String getNrTel() {
+		return nrTel;
+	}
+
+	public void setNrTel(String nrTel) {
+		this.nrTel = nrTel;
+	}
+	
+	
 	
 	
 }

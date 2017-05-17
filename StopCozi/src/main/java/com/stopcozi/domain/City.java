@@ -15,6 +15,13 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+
+/**
+ * 
+ * @author Alexandra
+ * Se presupune ca fiecare oras va pune la dispozitia utilizatorului toate institutiile, asa ca un oras nu va 
+ * fi legat(nicio relatie) de vreo institutie publica. O institutie are 1..n agentii, iar un oras are 1..n agentii.
+ */
 @Entity
 public class City implements Serializable {
 

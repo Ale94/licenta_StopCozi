@@ -1,5 +1,6 @@
 package com.stopcozi.service.agencyServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,16 @@ public class AgencyServiceImpl implements AgencyService{
 	AgencyDao agencyDao; 
 	
 	@Override
-	public List<Agency> listAllAgencies(City city) {
-		return city.getAgencyList();
+	public List<Agency> listAllAgencies(City city, String institute) {
+		List<Agency> agencyList = new ArrayList<Agency>() ;
+		Iterable<Agency> findAll = agencyDao.findAll();
+		for (Agency agency : findAll) {
+			if(agency.getInstitutie().getNumeInstitutie().equals(institute) && 
+					agency.getCity().getName().equals(city.getName()) )
+				agencyList.add(agency);
+		}
+		
+		return agencyList;
 	}
 
 	@Override

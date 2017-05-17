@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.StringWriter;
 import java.io.Writer;
 import java.security.Principal;
 import java.util.HashMap;
@@ -97,7 +96,7 @@ public class GenerateDocumentController {
        
     }
 	/*
-	 * Insert the user data in the document. No idea how.
+	 * Insert the user data in the document.
 	 */
 	public void updateDocument(Document document, User user) throws TemplateException, IOException {
 		 Configuration cfg = new Configuration(new Version("2.3.23"));
@@ -125,11 +124,11 @@ public class GenerateDocumentController {
 	        templateData.put("domiciliu", (user.getDomiciliuActual()==null) ? "_________________" : user.getDomiciliuActual().toUpperCase());
 	        templateData.put("judetDom", (user.getJudetActual()==null) ? "_________________" : user.getJudetActual().toUpperCase());
 	        templateData.put("strDom", (user.getStrada() == null) ? "_________________" : user.getStrada().toUpperCase());
-	        templateData.put("nrDom", (user.getNr()==null) ? "_________________" : user.getNr());
+	        templateData.put("nrDom", (user.getNumarAdresa()==null) ? "_________________" : user.getNumarAdresa());
 	        templateData.put("bloc", (user.getBloc() == null) ? "_________________" : user.getBloc().toUpperCase());
 	        templateData.put("aprt", (user.getApartament() == null) ? "_________________" : user.getApartament().toUpperCase());
 	        templateData.put("seria", (user.getSeria()==null) ? "_________________" : user.getSeria().toUpperCase());
-	        templateData.put("nr", (user.getNumar()==null) ? "_________________" : user.getNumar());
+	        templateData.put("nr", (user.getNrBuletin()==null) ? "_________________" : user.getNrBuletin());
 	        templateData.put("cnp", (user.getCnp()==null) ? "_________________" : user.getCnp());
 
 	        Writer file = new FileWriter (new File("C:\\Users\\Alexandra\\workspaceEENeon\\StopCozi\\src\\main\\resources\\file.ftl"));
